@@ -1,0 +1,9 @@
+[package]
+name = "rust-port-scanner"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.40.0", features = ["full"] }
+colored = "2.1.0"
+
