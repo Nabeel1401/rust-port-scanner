@@ -8,20 +8,20 @@ use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
 use tokio::time::timeout;
 
-// Clean the banner into a single readable line
+// Cleaning the banner into a single readable line
 fn clean_banner(banner: String) -> String {
     banner
         .replace('\n', " ")
         .replace('\r', " ")
         .replace('\t', " ")
         .chars()
-        .filter(|c| !c.is_control()) // remove weird unprintable chars
+        .filter(|c| !c.is_control()) // removing weird unprintable chars
         .collect::<String>()
         .trim()
         .to_string()
 }
 
-// Scan port + grab banner + HTTP header grab
+// Scanning port + grabbing banner + HTTP header grab
 async fn scan_port(host: &str, port: u16) -> Option<(u16, String)> {
     let addr = format!("{}:{}", host, port);
     let duration = Duration::from_millis(300);
@@ -30,7 +30,7 @@ async fn scan_port(host: &str, port: u16) -> Option<(u16, String)> {
         Ok(Ok(mut stream)) => {
             let mut banner = String::new();
 
-            // If HTTP port, send GET request
+            // If HTTP port, sending GET request
             if port == 80 || port == 8080 || port == 8000 || port == 8888 || port == 8443 {
                 let http_request = format!(
                     "GET / HTTP/1.1\r\nHost: {}\r\nConnection: close\r\n\r\n",
@@ -59,7 +59,7 @@ async fn scan_port(host: &str, port: u16) -> Option<(u16, String)> {
                 }
             }
 
-            // return clean one-line banner
+            // returning clean one-line banner
             Some((port, clean_banner(banner)))
         }
         _ => None,
@@ -106,7 +106,7 @@ async fn main() {
 
     let host = matches.get_one::<String>("host").unwrap();
 
-    // Decide scan type
+    // Deciding scan type
     let ports: Vec<u16> = if matches.get_flag("fast") {
         vec![22, 53, 80, 135, 139, 443, 445, 3306, 3389]
     } else if matches.get_flag("web") {
