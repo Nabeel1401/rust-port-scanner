@@ -17,6 +17,14 @@ The objective of this project is to understand:
 - How port scanners work internally
 - Safe and responsible security tool development
 
+## Use Cases
+
+- Quickly identify open ports on a local machine
+- Discover running services on a network device
+- Perform basic reconnaissance in a controlled lab environment
+- Learn how real-world port scanners operate
+- Educational demonstration of networking and security concepts
+
 ## Features
 
 - Asynchronous TCP port scanning using Tokio
@@ -29,6 +37,14 @@ The objective of this project is to understand:
 - HTTP header grabbing for web services
 - Clean, formatted one-line banner output
 - Colored and readable terminal output
+
+## Project Status
+
+- Core port scanning functionality implemented
+- Multiple scan modes supported (FAST, WEB, FULL, RANGE)
+- Banner grabbing and HTTP header detection completed
+- Code tested on local and private networks
+- Project considered functionally complete for academic submission
 
 ## Installation & Compilation
 
@@ -98,11 +114,21 @@ Contains the port-to-service mapping
 
 ## Challenges Faced
 
-- Managing asynchronous tasks efficiently
-- Handling timeouts to avoid long scan times
-- Cleaning binary banner data into readable text
-- Understanding why some services do not return banners
-- Firewall and network restrictions
+- Managing asynchronous tasks efficiently  
+  → Solved using Tokio async runtime and task spawning.
+
+- Handling timeouts to avoid long scan times  
+  → Implemented connection and read timeouts.
+
+- Cleaning binary banner data into readable text  
+  → Applied banner sanitization and one-line formatting.
+
+- Understanding why some services do not return banners  
+  → Learned that many services wait for client input or block banners.
+
+- Firewall and network restrictions  
+  → Tested on local networks and loopback addresses.
+
 
 ## Limitations & Future Improvements
 
@@ -121,3 +147,12 @@ This tool is developed for educational purposes only.
 - Our own devices
 - Networks where you have explicit permission
 - Unauthorized scanning of systems is illegal and unethical.
+
+## Conclusion
+
+This project demonstrates a practical understanding of networking,
+asynchronous programming, and security concepts using Rust.
+By building a functional port scanner with banner grabbing,
+we gained insight into how real-world security tools operate.
+The project also emphasizes ethical and responsible usage of such tools.
+
