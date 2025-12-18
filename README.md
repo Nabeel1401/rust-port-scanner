@@ -7,7 +7,7 @@ This tool scans a target host to detect open TCP ports, identify common services
 
 1. Nabeel Ahmad KAMALUDEEN -CCC1
 2. John DIB - CCC1
-3. Yassine SMACH - DIA
+3. Yassine SMACH - DIA1
 
 ## Project Objective
 
