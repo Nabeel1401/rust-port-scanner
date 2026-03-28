@@ -3,12 +3,6 @@
 A fast and asynchronous port scanner written in **Rust**, using the **Tokio** async runtime. 
 This tool scans a target host to detect open TCP ports, identify common services and perform **banner grabbing**, including **HTTP header detection**.
 
-## Authors
-
-1. Nabeel Ahmad KAMALUDEEN -CCC1
-2. John DIB - CCC1
-3. Yassine SMACH - DIA1
-
 ## Project Objective
 
 The objective of this project is to understand:
